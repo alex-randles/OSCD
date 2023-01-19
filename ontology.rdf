@@ -184,6 +184,20 @@
     
 
 
+    <!-- https://w3id.org/OSCD#isChangedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/OSCD#isChangedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/OSCD#wasChangedBy"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/OSCD#ChangeLog"/>
+        <rdfs:comment>The change which the agent is responsible for.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
+        <rdfs:label>isChangedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/OSCD#isCurrentSource -->
 
 
@@ -235,6 +249,19 @@
         <rdfs:comment>The previous version of the source data.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
         <rdfs:label>isPreviousSource</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/OSCD#wasChangedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/OSCD#wasChangedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/OSCD#ChangeLog"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"/>
+        <rdfs:comment>The agent responsible for a change.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
+        <rdfs:label>wasChangedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -301,6 +328,19 @@
         <rdfs:comment>The time when the notification policy was created.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
         <rdfs:label>hasDetectionStart</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/OSCD#hasPreviousValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/OSCD#hasPreviousValue">
+        <rdfs:domain rdf:resource="http://linkedevents.org/ontology/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The original value which was changed.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
+        <rdfs:label>hasPreviousValue</rdfs:label>
     </owl:DatatypeProperty>
     
 

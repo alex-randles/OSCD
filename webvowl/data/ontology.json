@@ -42,6 +42,12 @@
         "value" : "oscd",
         "type" : "label"
       } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "label"
+      } ],
       "versionInfo" : [ {
         "identifier" : "versionInfo",
         "language" : "undefined",
@@ -52,12 +58,6 @@
         "identifier" : "abstract",
         "language" : "undefined",
         "value" : "The Ontology for Source Change Detection (OSCD) provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance and metadata information relating to changes that occur within source data that has been used to create an RDF dataset. It can also be specialized to create new classes and properties to model provenance and metadata information for domain specific changes.",
-        "type" : "label"
-      } ],
-      "preferredNamespaceUri" : [ {
-        "identifier" : "preferredNamespaceUri",
-        "language" : "undefined",
-        "value" : "https://w3id.org/OSCD#",
         "type" : "label"
       } ],
       "title" : [ {
@@ -76,52 +76,55 @@
     "id" : "4",
     "type" : "owl:Class"
   }, {
-    "id" : "8",
-    "type" : "owl:Class"
-  }, {
-    "id" : "18",
-    "type" : "owl:Class"
-  }, {
-    "id" : "9",
-    "type" : "owl:Class"
-  }, {
-    "id" : "27",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "2",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "5",
-    "type" : "owl:Class"
-  }, {
-    "id" : "21",
+    "id" : "11",
     "type" : "owl:Class"
   }, {
     "id" : "7",
     "type" : "owl:Class"
   }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "2",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:Datatype"
+  }, {
     "id" : "17",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "15",
+    "id" : "39",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "36",
+    "id" : "40",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "37",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "11",
+    "id" : "6",
     "type" : "owl:Class"
   }, {
     "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "6",
+    "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "13",
+    "id" : "14",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -152,7 +155,7 @@
     "label" : {
       "IRI-based" : "Event"
     },
-    "subClasses" : [ "5", "6", "7", "3", "8", "9" ],
+    "subClasses" : [ "8", "9", "10", "3", "11", "12" ],
     "attributes" : [ "external" ],
     "id" : "4"
   }, {
@@ -174,7 +177,7 @@
     "comment" : {
       "undefined" : "Existing source data which has been modified."
     },
-    "id" : "8",
+    "id" : "11",
     "superClasses" : [ "4" ]
   }, {
     "iri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent",
@@ -184,7 +187,7 @@
       "IRI-based" : "Agent"
     },
     "attributes" : [ "external" ],
-    "id" : "18"
+    "id" : "7"
   }, {
     "iri" : "https://w3id.org/OSCD#InsertSourceData",
     "baseIri" : "https://w3id.org/OSCD",
@@ -204,12 +207,12 @@
     "comment" : {
       "undefined" : "Data which has been added to the source data."
     },
-    "id" : "9",
+    "id" : "12",
     "superClasses" : [ "4" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "27",
+    "id" : "29",
     "label" : {
       "IRI-based" : "string"
     }
@@ -219,6 +222,13 @@
     "id" : "2",
     "label" : {
       "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "32",
+    "label" : {
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "https://w3id.org/OSCD#MoveSourceData",
@@ -239,7 +249,7 @@
     "comment" : {
       "undefined" : "Data which has changed location in the source data."
     },
-    "id" : "5",
+    "id" : "8",
     "superClasses" : [ "4" ]
   }, {
     "iri" : "http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#Policy",
@@ -249,7 +259,7 @@
       "IRI-based" : "Policy"
     },
     "attributes" : [ "external" ],
-    "id" : "21"
+    "id" : "23"
   }, {
     "iri" : "https://w3id.org/OSCD#MergeSourceData",
     "baseIri" : "https://w3id.org/OSCD",
@@ -269,8 +279,15 @@
     "comment" : {
       "undefined" : "Source data which has been merged with other data."
     },
-    "id" : "7",
+    "id" : "10",
     "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "19",
+    "label" : {
+      "IRI-based" : "string"
+    }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -279,23 +296,16 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "15",
-    "label" : {
-      "IRI-based" : "string"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "36",
+    "id" : "39",
     "label" : {
       "IRI-based" : "dateTime"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "37",
+    "id" : "40",
     "label" : {
       "IRI-based" : "dateTime"
     }
@@ -318,7 +328,7 @@
     "comment" : {
       "undefined" : "A grouping of changes which have occured in a source data."
     },
-    "id" : "11"
+    "id" : "6"
   }, {
     "iri" : "http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint",
     "baseIri" : "http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl",
@@ -347,7 +357,7 @@
     "comment" : {
       "undefined" : "Data which has been removed from the source data."
     },
-    "id" : "6",
+    "id" : "9",
     "superClasses" : [ "4" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Resource",
@@ -357,38 +367,38 @@
       "IRI-based" : "Resource"
     },
     "attributes" : [ "external" ],
-    "id" : "13"
+    "id" : "14"
   } ],
   "property" : [ {
     "id" : "0",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "10",
+    "id" : "5",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "12",
+    "id" : "13",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "14",
-    "type" : "owl:datatypeProperty"
+    "id" : "15",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "16",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "19",
-    "type" : "rdfs:SubClassOf"
+    "id" : "18",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "20",
-    "type" : "owl:objectProperty"
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "22",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "23",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "24",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "25",
     "type" : "rdfs:SubClassOf"
@@ -396,52 +406,61 @@
     "id" : "26",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "28",
-    "type" : "owl:objectProperty"
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "29",
+    "id" : "28",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "30",
-    "type" : "owl:disjointWith"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "31",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "32",
-    "type" : "owl:disjointWith"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "33",
     "type" : "owl:disjointWith"
   }, {
     "id" : "34",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "38",
     "type" : "owl:disjointWith"
-  }, {
-    "id" : "39",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "40",
-    "type" : "owl:objectProperty"
   }, {
     "id" : "35",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "36",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "37",
     "type" : "owl:objectProperty"
   }, {
     "id" : "41",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "42",
-    "type" : "owl:objectProperty"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "43",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
     "type" : "owl:objectProperty"
   }, {
     "id" : "44",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "45",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
     "type" : "owl:datatypeProperty"
   } ],
   "propertyAttribute" : [ {
@@ -467,6 +486,50 @@
     "attributes" : [ "functional", "datatype" ],
     "id" : "0"
   }, {
+    "iri" : "https://w3id.org/OSCD#wasChangedBy",
+    "baseIri" : "https://w3id.org/OSCD",
+    "range" : "7",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasChangedBy",
+      "undefined" : "wasChangedBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The agent responsible for a change."
+    },
+    "attributes" : [ "object" ],
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/OSCD#hasCurrentSource",
+    "baseIri" : "https://w3id.org/OSCD",
+    "range" : "14",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasCurrentSource",
+      "undefined" : "hasCurrentSource"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The current version of the source data."
+    },
+    "attributes" : [ "object" ],
+    "id" : "13"
+  }, {
     "iri" : "https://w3id.org/OSCD#hasChange",
     "baseIri" : "https://w3id.org/OSCD",
     "range" : "4",
@@ -482,38 +545,16 @@
       "IRI-based" : "hasChange",
       "undefined" : "hasChange"
     },
-    "domain" : "11",
+    "domain" : "6",
     "comment" : {
       "undefined" : "A change contained in a change log."
     },
     "attributes" : [ "object" ],
-    "id" : "10"
-  }, {
-    "iri" : "https://w3id.org/OSCD#hasCurrentSource",
-    "baseIri" : "https://w3id.org/OSCD",
-    "range" : "13",
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://w3id.org/OSCD#",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "hasCurrentSource",
-      "undefined" : "hasCurrentSource"
-    },
-    "domain" : "11",
-    "comment" : {
-      "undefined" : "The current version of the source data."
-    },
-    "attributes" : [ "object" ],
-    "id" : "12"
+    "id" : "15"
   }, {
     "iri" : "https://w3id.org/OSCD#hasDataReference",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "15",
+    "range" : "17",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -531,11 +572,11 @@
       "undefined" : "A reference to source data associated with a change."
     },
     "attributes" : [ "datatype" ],
-    "id" : "14"
+    "id" : "16"
   }, {
     "iri" : "https://w3id.org/OSCD#hasChangedData",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "17",
+    "range" : "19",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -553,16 +594,21 @@
       "undefined" : "The data within the source data which has been modified."
     },
     "attributes" : [ "datatype" ],
-    "id" : "16"
+    "id" : "18"
   }, {
     "range" : "4",
-    "domain" : "9",
+    "domain" : "12",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "19"
+    "id" : "20"
+  }, {
+    "range" : "4",
+    "domain" : "11",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "21"
   }, {
     "iri" : "https://w3id.org/OSCD#isNotificationPolicy",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "11",
+    "range" : "6",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -575,17 +621,17 @@
       "IRI-based" : "isNotificationPolicy",
       "undefined" : "isNotificationPolicy"
     },
-    "domain" : "21",
+    "domain" : "23",
     "comment" : {
       "undefined" : "The notification policy defined for the change log"
     },
     "attributes" : [ "object" ],
-    "id" : "20"
+    "id" : "22"
   }, {
     "iri" : "https://w3id.org/OSCD#hasNotificationPolicy",
-    "inverse" : "20",
+    "inverse" : "22",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "21",
+    "range" : "23",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -598,37 +644,37 @@
       "IRI-based" : "hasNotificationPolicy",
       "undefined" : "hasNotificationPolicy"
     },
-    "domain" : "11",
+    "domain" : "6",
     "comment" : {
       "undefined" : "The notification policy details related to a change log."
     },
     "attributes" : [ "object" ],
-    "id" : "22"
-  }, {
-    "range" : "4",
-    "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "23"
-  }, {
-    "range" : "4",
-    "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
     "id" : "24"
   }, {
     "range" : "4",
-    "domain" : "8",
+    "domain" : "9",
     "attributes" : [ "anonymous", "object" ],
     "id" : "25"
   }, {
     "range" : "4",
-    "domain" : "3",
+    "domain" : "8",
     "attributes" : [ "anonymous", "object" ],
     "id" : "26"
   }, {
+    "range" : "4",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "27"
+  }, {
+    "range" : "4",
+    "domain" : "10",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
     "iri" : "https://w3id.org/OSCD#isCurrentSource",
-    "inverse" : "12",
+    "inverse" : "13",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "11",
+    "range" : "6",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -641,42 +687,60 @@
       "IRI-based" : "isCurrentSource",
       "undefined" : "isCurrentSource"
     },
-    "domain" : "13",
+    "domain" : "14",
     "comment" : {
       "undefined" : "The current version of the source data."
     },
     "attributes" : [ "object" ],
-    "id" : "28"
-  }, {
-    "range" : "4",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "29"
-  }, {
-    "range" : "6",
-    "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
     "id" : "30"
   }, {
-    "range" : "5",
-    "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "iri" : "https://w3id.org/OSCD#isChangedBy",
+    "inverse" : "5",
+    "baseIri" : "https://w3id.org/OSCD",
+    "range" : "6",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isChangedBy",
+      "undefined" : "isChangedBy"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The change which the agent is responsible for."
+    },
+    "attributes" : [ "object" ],
     "id" : "31"
   }, {
     "range" : "8",
-    "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "32"
-  }, {
-    "range" : "3",
-    "domain" : "11",
+    "domain" : "6",
     "attributes" : [ "anonymous", "object" ],
     "id" : "33"
   }, {
+    "range" : "10",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "34"
+  }, {
+    "range" : "12",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "35"
+  }, {
+    "range" : "9",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "36"
+  }, {
     "iri" : "https://w3id.org/OSCD#isMaintainedBy",
-    "inverse" : "35",
+    "inverse" : "38",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "11",
+    "range" : "6",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -689,26 +753,26 @@
       "IRI-based" : "isMaintainedBy",
       "undefined" : "isMaintainedBy"
     },
-    "domain" : "18",
+    "domain" : "7",
     "comment" : {
       "undefined" : "The maintainer of the source data."
     },
     "attributes" : [ "object" ],
-    "id" : "34"
+    "id" : "37"
   }, {
-    "range" : "7",
-    "domain" : "11",
+    "range" : "3",
+    "domain" : "6",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "38"
+    "id" : "41"
   }, {
-    "range" : "9",
-    "domain" : "11",
+    "range" : "11",
+    "domain" : "6",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "39"
+    "id" : "42"
   }, {
     "iri" : "https://w3id.org/OSCD#hasPreviousSource",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "13",
+    "range" : "14",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -721,16 +785,16 @@
       "IRI-based" : "hasPreviousSource",
       "undefined" : "hasPreviousSource"
     },
-    "domain" : "11",
+    "domain" : "6",
     "comment" : {
       "undefined" : "The previous version of the source data of the change log."
     },
     "attributes" : [ "object" ],
-    "id" : "40"
+    "id" : "43"
   }, {
     "iri" : "https://w3id.org/OSCD#hasMaintainer",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "18",
+    "range" : "7",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -743,16 +807,38 @@
       "IRI-based" : "hasMaintainer",
       "undefined" : "hasMaintainer"
     },
-    "domain" : "11",
+    "domain" : "6",
     "comment" : {
       "undefined" : "The agent who maintains the source data."
     },
     "attributes" : [ "object" ],
-    "id" : "35"
+    "id" : "38"
+  }, {
+    "iri" : "https://w3id.org/OSCD#hasPreviousValue",
+    "baseIri" : "https://w3id.org/OSCD",
+    "range" : "29",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPreviousValue",
+      "undefined" : "hasPreviousValue"
+    },
+    "domain" : "4",
+    "comment" : {
+      "undefined" : "The original value which was changed."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "44"
   }, {
     "iri" : "https://w3id.org/OSCD#hasDetectionEnd",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "36",
+    "range" : "39",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -765,17 +851,17 @@
       "IRI-based" : "hasDetectionEnd",
       "undefined" : "hasDetectionEnd"
     },
-    "domain" : "21",
+    "domain" : "23",
     "comment" : {
       "undefined" : "The time when the notification policy is terminated."
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "41"
+    "id" : "45"
   }, {
     "iri" : "https://w3id.org/OSCD#inChangeLog",
-    "inverse" : "10",
+    "inverse" : "15",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "11",
+    "range" : "6",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -793,34 +879,11 @@
       "undefined" : "The change log which contains the change."
     },
     "attributes" : [ "functional", "object" ],
-    "id" : "42"
-  }, {
-    "iri" : "https://w3id.org/OSCD#isPreviousSource",
-    "inverse" : "40",
-    "baseIri" : "https://w3id.org/OSCD",
-    "range" : "11",
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://w3id.org/OSCD#",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "isPreviousSource",
-      "undefined" : "isPreviousSource"
-    },
-    "domain" : "13",
-    "comment" : {
-      "undefined" : "The previous version of the source data."
-    },
-    "attributes" : [ "object" ],
-    "id" : "43"
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/OSCD#hasDetectionStart",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "37",
+    "range" : "40",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -833,16 +896,39 @@
       "IRI-based" : "hasDetectionStart",
       "undefined" : "hasDetectionStart"
     },
-    "domain" : "21",
+    "domain" : "23",
     "comment" : {
       "undefined" : "The time when the notification policy was created."
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "44"
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/OSCD#isPreviousSource",
+    "inverse" : "43",
+    "baseIri" : "https://w3id.org/OSCD",
+    "range" : "6",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/OSCD#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isPreviousSource",
+      "undefined" : "isPreviousSource"
+    },
+    "domain" : "14",
+    "comment" : {
+      "undefined" : "The previous version of the source data."
+    },
+    "attributes" : [ "object" ],
+    "id" : "48"
   }, {
     "iri" : "https://w3id.org/OSCD#hasStructuralReference",
     "baseIri" : "https://w3id.org/OSCD",
-    "range" : "27",
+    "range" : "32",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -860,6 +946,6 @@
       "undefined" : "A reference to a structural component of the source data associated with a change."
     },
     "attributes" : [ "datatype" ],
-    "id" : "45"
+    "id" : "49"
   } ]
 }

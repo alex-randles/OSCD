@@ -49,11 +49,13 @@ This section provides details for each class and property defined by Ontology fo
             <sup class="type-op" title="object property">op</sup>, <a href="#hasMaintainer" title="https://w3id.org/OSCD#hasMaintainer">hasMaintainer</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasNotificationPolicy" title="https://w3id.org/OSCD#hasNotificationPolicy">hasNotificationPolicy</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasPreviousSource" title="https://w3id.org/OSCD#hasPreviousSource">hasPreviousSource</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#inChangeLog" title="https://w3id.org/OSCD#inChangeLog">inChangeLog</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isCurrentSource" title="https://w3id.org/OSCD#isCurrentSource">isCurrentSource</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isMaintainedBy" title="https://w3id.org/OSCD#isMaintainedBy">isMaintainedBy</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isNotificationPolicy" title="https://w3id.org/OSCD#isNotificationPolicy">isNotificationPolicy</a>
@@ -280,6 +282,9 @@ This section provides details for each class and property defined by Ontology fo
          <a href="#inChangeLog" title="https://w3id.org/OSCD#inChangeLog">inChangeLog</a>
       </li>
       <li>
+         <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
+      </li>
+      <li>
          <a href="#isCurrentSource" title="https://w3id.org/OSCD#isCurrentSource">isCurrentSource</a>
       </li>
       <li>
@@ -290,6 +295,9 @@ This section provides details for each class and property defined by Ontology fo
       </li>
       <li>
          <a href="#isPreviousSource" title="https://w3id.org/OSCD#isPreviousSource">isPreviousSource</a>
+      </li>
+      <li>
+         <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
       </li>
    </ul>
    <div class="entity" id="hasChange">
@@ -523,6 +531,44 @@ This section provides details for each class and property defined by Ontology fo
          </dl>
       </div>
    </div>
+   <div class="entity" id="isChangedBy">
+      <h3>isChangedBy<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/OSCD#isChangedBy</p>
+      <div class="comment">
+         <span class="markdown">The change which the agent is responsible for.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
+                  target="_blank"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">agent</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ChangeLog" title="https://w3id.org/OSCD#ChangeLog">ChangeLog</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="isCurrentSource">
       <h3>isCurrentSource<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -675,6 +721,44 @@ This section provides details for each class and property defined by Ontology fo
          </dl>
       </div>
    </div>
+   <div class="entity" id="wasChangedBy">
+      <h3>wasChangedBy<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/OSCD#wasChangedBy</p>
+      <div class="comment">
+         <span class="markdown">The agent responsible for a change.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#ChangeLog" title="https://w3id.org/OSCD#ChangeLog">ChangeLog</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
+                  target="_blank"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">agent</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
 </div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
@@ -689,6 +773,9 @@ This section provides details for each class and property defined by Ontology fo
       </li>
       <li>
          <a href="#hasDetectionStart" title="https://w3id.org/OSCD#hasDetectionStart">hasDetectionStart</a>
+      </li>
+      <li>
+         <a href="#hasPreviousValue" title="https://w3id.org/OSCD#hasPreviousValue">hasPreviousValue</a>
       </li>
       <li>
          <a href="#hasStructuralReference" title="https://w3id.org/OSCD#hasStructuralReference">hasStructuralReference</a>
@@ -835,6 +922,40 @@ This section provides details for each class and property defined by Ontology fo
                <a href="http://www.w3.org/2001/XMLSchema#dateTime"
                   target="_blank"
                   title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasPreviousValue">
+      <h3>hasPreviousValue<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/OSCD#hasPreviousValue</p>
+      <div class="comment">
+         <span class="markdown">The original value which was changed.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="http://linkedevents.org/ontology/Event"
+                  target="_blank"
+                  title="http://linkedevents.org/ontology/Event">event</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
             </dd>
          </dl>
       </div>

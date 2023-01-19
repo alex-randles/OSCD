@@ -115,6 +115,16 @@
              rdfs:label "inChangeLog" .
 
 
+###  https://w3id.org/OSCD#isChangedBy
+:isChangedBy rdf:type owl:ObjectProperty ;
+             owl:inverseOf :wasChangedBy ;
+             rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> ;
+             rdfs:range :ChangeLog ;
+             rdfs:comment "The change which the agent is responsible for." ;
+             rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
+             rdfs:label "isChangedBy" .
+
+
 ###  https://w3id.org/OSCD#isCurrentSource
 :isCurrentSource rdf:type owl:ObjectProperty ;
                  owl:inverseOf :hasCurrentSource ;
@@ -152,6 +162,15 @@
                   rdfs:comment "The previous version of the source data." ;
                   rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
                   rdfs:label "isPreviousSource" .
+
+
+###  https://w3id.org/OSCD#wasChangedBy
+:wasChangedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :ChangeLog ;
+              rdfs:range <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> ;
+              rdfs:comment "The agent responsible for a change." ;
+              rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
+              rdfs:label "wasChangedBy" .
 
 
 #################################################################
@@ -194,6 +213,15 @@
                    rdfs:comment "The time when the notification policy was created." ;
                    rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
                    rdfs:label "hasDetectionStart" .
+
+
+###  https://w3id.org/OSCD#hasPreviousValue
+:hasPreviousValue rdf:type owl:DatatypeProperty ;
+                  rdfs:domain <http://linkedevents.org/ontology/Event> ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The original value which was changed." ;
+                  rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
+                  rdfs:label "hasPreviousValue" .
 
 
 ###  https://w3id.org/OSCD#hasStructuralReference

@@ -102,6 +102,15 @@
 <https://w3id.org/OSCD#inChangeLog> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
 <https://w3id.org/OSCD#inChangeLog> <http://www.w3.org/2000/01/rdf-schema#label> "inChangeLog" .
 # 
+# https://w3id.org/OSCD#isChangedBy
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/OSCD#wasChangedBy> .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/OSCD#ChangeLog> .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The change which the agent is responsible for." .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
+<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isChangedBy" .
+# 
 # https://w3id.org/OSCD#isCurrentSource
 <https://w3id.org/OSCD#isCurrentSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/OSCD#isCurrentSource> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/OSCD#hasCurrentSource> .
@@ -136,6 +145,14 @@
 <https://w3id.org/OSCD#isPreviousSource> <http://www.w3.org/2000/01/rdf-schema#comment> "The previous version of the source data." .
 <https://w3id.org/OSCD#isPreviousSource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
 <https://w3id.org/OSCD#isPreviousSource> <http://www.w3.org/2000/01/rdf-schema#label> "isPreviousSource" .
+# 
+# https://w3id.org/OSCD#wasChangedBy
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/OSCD#ChangeLog> .
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The agent responsible for a change." .
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
+<https://w3id.org/OSCD#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasChangedBy" .
 # 
 # 
 # 
@@ -179,6 +196,14 @@
 <https://w3id.org/OSCD#hasDetectionStart> <http://www.w3.org/2000/01/rdf-schema#comment> "The time when the notification policy was created." .
 <https://w3id.org/OSCD#hasDetectionStart> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
 <https://w3id.org/OSCD#hasDetectionStart> <http://www.w3.org/2000/01/rdf-schema#label> "hasDetectionStart" .
+# 
+# https://w3id.org/OSCD#hasPreviousValue
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linkedevents.org/ontology/Event> .
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/2000/01/rdf-schema#comment> "The original value which was changed." .
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
+<https://w3id.org/OSCD#hasPreviousValue> <http://www.w3.org/2000/01/rdf-schema#label> "hasPreviousValue" .
 # 
 # https://w3id.org/OSCD#hasStructuralReference
 <https://w3id.org/OSCD#hasStructuralReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .

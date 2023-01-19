@@ -350,6 +350,24 @@
     "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
   } ]
 }, {
+  "@id" : "https://w3id.org/OSCD#hasPreviousValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The original value which was changed."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://linkedevents.org/ontology/Event"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/OSCD#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "hasPreviousValue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
   "@id" : "https://w3id.org/OSCD#hasStructuralReference",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -405,6 +423,27 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "https://w3id.org/OSCD#hasChange"
+  } ]
+}, {
+  "@id" : "https://w3id.org/OSCD#isChangedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The change which the agent is responsible for."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/OSCD#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "isChangedBy"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/OSCD#ChangeLog"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://w3id.org/OSCD#wasChangedBy"
   } ]
 }, {
   "@id" : "https://w3id.org/OSCD#isCurrentSource",
@@ -486,5 +525,23 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "https://w3id.org/OSCD#hasPreviousSource"
+  } ]
+}, {
+  "@id" : "https://w3id.org/OSCD#wasChangedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The agent responsible for a change."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/OSCD#ChangeLog"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/OSCD#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "wasChangedBy"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
   } ]
 } ]
