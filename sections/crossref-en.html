@@ -54,8 +54,8 @@ This section provides details for each class and property defined by Ontology fo
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#inChangeLog" title="https://w3id.org/OSCD#inChangeLog">inChangeLog</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
+            <a href="#approvedChange" title="https://w3id.org/OSCD#approvedChange">approvedChange</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#inChangeLog" title="https://w3id.org/OSCD#inChangeLog">inChangeLog</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isCurrentSource" title="https://w3id.org/OSCD#isCurrentSource">isCurrentSource</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isMaintainedBy" title="https://w3id.org/OSCD#isMaintainedBy">isMaintainedBy</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isNotificationPolicy" title="https://w3id.org/OSCD#isNotificationPolicy">isNotificationPolicy</a>
@@ -264,6 +264,9 @@ This section provides details for each class and property defined by Ontology fo
    <h3 id="properties" class="list">Object Properties</h3>
    <ul class="hlist">
       <li>
+         <a href="#approvedChange" title="https://w3id.org/OSCD#approvedChange">approvedChange</a>
+      </li>
+      <li>
          <a href="#hasChange" title="https://w3id.org/OSCD#hasChange">hasChange</a>
       </li>
       <li>
@@ -282,9 +285,6 @@ This section provides details for each class and property defined by Ontology fo
          <a href="#inChangeLog" title="https://w3id.org/OSCD#inChangeLog">inChangeLog</a>
       </li>
       <li>
-         <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
-      </li>
-      <li>
          <a href="#isCurrentSource" title="https://w3id.org/OSCD#isCurrentSource">isCurrentSource</a>
       </li>
       <li>
@@ -300,6 +300,44 @@ This section provides details for each class and property defined by Ontology fo
          <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
       </li>
    </ul>
+   <div class="entity" id="approvedChange">
+      <h3>approvedChange<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/OSCD#approvedChange</p>
+      <div class="comment">
+         <span class="markdown">The change which the agent is responsible for.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
+                  target="_blank"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">agent</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ChangeLog" title="https://w3id.org/OSCD#ChangeLog">ChangeLog</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="hasChange">
       <h3>hasChange<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -531,44 +569,6 @@ This section provides details for each class and property defined by Ontology fo
          </dl>
       </div>
    </div>
-   <div class="entity" id="isChangedBy">
-      <h3>isChangedBy<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/OSCD#isChangedBy</p>
-      <div class="comment">
-         <span class="markdown">The change which the agent is responsible for.</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"
-                  target="_blank"
-                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">agent</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#ChangeLog" title="https://w3id.org/OSCD#ChangeLog">ChangeLog</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is inverse of</dt>
-            <dd>
-               <a href="#wasChangedBy" title="https://w3id.org/OSCD#wasChangedBy">wasChangedBy</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="isCurrentSource">
       <h3>isCurrentSource<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -753,7 +753,7 @@ This section provides details for each class and property defined by Ontology fo
             </dd>
             <dt>is inverse of</dt>
             <dd>
-               <a href="#isChangedBy" title="https://w3id.org/OSCD#isChangedBy">isChangedBy</a>
+               <a href="#approvedChange" title="https://w3id.org/OSCD#approvedChange">approvedChange</a>
                <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>

@@ -58,6 +58,16 @@
 #    Object Properties
 #################################################################
 
+###  https://w3id.org/OSCD#approvedChange
+:approvedChange rdf:type owl:ObjectProperty ;
+                owl:inverseOf :wasChangedBy ;
+                rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> ;
+                rdfs:range :ChangeLog ;
+                rdfs:comment "The change which the agent is responsible for." ;
+                rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
+                rdfs:label "approvedChange" .
+
+
 ###  https://w3id.org/OSCD#hasChange
 :hasChange rdf:type owl:ObjectProperty ;
            rdfs:domain :ChangeLog ;
@@ -113,16 +123,6 @@
              rdfs:comment "The change log which contains the change." ;
              rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
              rdfs:label "inChangeLog" .
-
-
-###  https://w3id.org/OSCD#isChangedBy
-:isChangedBy rdf:type owl:ObjectProperty ;
-             owl:inverseOf :wasChangedBy ;
-             rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> ;
-             rdfs:range :ChangeLog ;
-             rdfs:comment "The change which the agent is responsible for." ;
-             rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
-             rdfs:label "isChangedBy" .
 
 
 ###  https://w3id.org/OSCD#isCurrentSource

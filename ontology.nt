@@ -51,6 +51,15 @@
 # #################################################################
 # 
 # 
+# https://w3id.org/OSCD#approvedChange
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/OSCD#wasChangedBy> .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/OSCD#ChangeLog> .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The change which the agent is responsible for." .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
+<https://w3id.org/OSCD#approvedChange> <http://www.w3.org/2000/01/rdf-schema#label> "approvedChange" .
+# 
 # https://w3id.org/OSCD#hasChange
 <https://w3id.org/OSCD#hasChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/OSCD#hasChange> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/OSCD#ChangeLog> .
@@ -101,15 +110,6 @@
 <https://w3id.org/OSCD#inChangeLog> <http://www.w3.org/2000/01/rdf-schema#comment> "The change log which contains the change." .
 <https://w3id.org/OSCD#inChangeLog> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
 <https://w3id.org/OSCD#inChangeLog> <http://www.w3.org/2000/01/rdf-schema#label> "inChangeLog" .
-# 
-# https://w3id.org/OSCD#isChangedBy
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/OSCD#wasChangedBy> .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/OSCD#ChangeLog> .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The change which the agent is responsible for." .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/OSCD#> .
-<https://w3id.org/OSCD#isChangedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isChangedBy" .
 # 
 # https://w3id.org/OSCD#isCurrentSource
 <https://w3id.org/OSCD#isCurrentSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

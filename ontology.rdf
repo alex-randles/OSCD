@@ -103,6 +103,20 @@
     
 
 
+    <!-- https://w3id.org/OSCD#approvedChange -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/OSCD#approvedChange">
+        <owl:inverseOf rdf:resource="https://w3id.org/OSCD#wasChangedBy"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/OSCD#ChangeLog"/>
+        <rdfs:comment>The change which the agent is responsible for.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
+        <rdfs:label>approvedChange</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/OSCD#hasChange -->
 
 
@@ -180,20 +194,6 @@
         <rdfs:comment>The change log which contains the change.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
         <rdfs:label>inChangeLog</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/OSCD#isChangedBy -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/OSCD#isChangedBy">
-        <owl:inverseOf rdf:resource="https://w3id.org/OSCD#wasChangedBy"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"/>
-        <rdfs:range rdf:resource="https://w3id.org/OSCD#ChangeLog"/>
-        <rdfs:comment>The change which the agent is responsible for.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/OSCD#"/>
-        <rdfs:label>isChangedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
