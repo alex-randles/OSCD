@@ -1,6 +1,13 @@
 @prefix cdo: <https://w3id.org/CDO#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix lode: <http://linkedevents.org/ontology/> .
+@prefix rei-deontic: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#> .
+@prefix rei-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#> .
+@prefix rei-constraint: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#> .
+
+###############################
+#    Changes in source data   #
+###############################
 
 <http://www.example.com/changeLog/1>
   a cdo:ChangeLog ;
@@ -9,7 +16,7 @@
   cdo:hasDetectionEnd "2022-12-31T00:00:00.000000"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
   cdo:hasCurrentVersion <https://raw.githubusercontent.com/alex-randles/Change-Detection-System-Examples/main/manipulated_file/student.csv> ;
   cdo:hasPreviousVersion <https://raw.githubusercontent.com/kg-construct/rml-test-cases/master/test-cases/RMLTC0002a-CSV/student.csv>;
-  cdo:hasNotificationPolicy <http://www.example.com/notificationPolicy/user/1>; 
+  cdo:hasNotificationPolicy <http://www.example.com/notificationPolicy/1>; 
   cdo:hasChange <http://www.example.com/insertChange/15>,
 				<http://www.example.com/insertChange/19>,
 				<http://www.example.com/insertChange/10>,
@@ -185,3 +192,28 @@
   lode:atTime "2022-10-18T15:01:01.286820"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
   cdo:hasDataReference "LastName";
   cdo:hasChangedData "Williams" .
+  
+  
+###############################
+# Notification policy details #
+###############################
+
+<http://www.example.com/user/1> a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#Agent>, <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
+
+<http://www.example.com/notificationPolicy/1>
+  a rei-policy:Policy ;
+  rei-policy:desc "Notification policy for user 1" ;
+  rei-policy:grants <http://www.example.com/policyObligation/1> .
+
+<http://www.example.com/policyObligation/1>
+  a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation> ;
+  rei-deontic:action <https://change-detection-ontology.adaptcentre.ie/#sendNotification> ;
+  rei-deontic:obligedTo <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> ;
+  rei-deontic:startingConstraint <http://www.example.com/insertChangeConstraint/1> ;
+  rei-policy:actor <http://www.example.com/user/1>, <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> .
+
+<http://www.example.com/insertChangeConstraint/1>
+  a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+  rei-constraint:object "25" ;
+  rei-constraint:predicate <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+  rei-constraint:subject <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> .

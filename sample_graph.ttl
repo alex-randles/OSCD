@@ -1,6 +1,9 @@
 @prefix cdo: <https://w3id.org/CDO#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix lode: <http://linkedevents.org/ontology/> .
+@prefix rei-deontic: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#> .
+@prefix rei-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#> .
+@prefix rei-constraint: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#> .
 
 ###############################
 #    Changes in source data   #
@@ -33,36 +36,61 @@
 # Notification policy details #
 ###############################
 
-<http://www.example.com/userActor/1>
-		a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#Agent> .
+@prefix cdo: <https://w3id.org/CDO#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix lode: <http://linkedevents.org/ontology/> .
+@prefix rei-deontic: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#> .
+@prefix rei-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#> .
+@prefix rei-constraint: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#> .
 
-<http://www.example.com/policyObligation/1>
-		a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#action>
-				<https://change-detection-ontology.adaptcentre.ie/#sendNotification> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#obligedTo>
-				<https://change-detection-ontology.adaptcentre.ie/#softwareAgent> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#startingConstraint>
-				<http://www.example.com/insertChangeConstraint/1> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#actor>
-				<http://www.example.com/userActor/1> , <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> .
+###############################
+#    Changes in source data   #
+###############################
 
-<http://www.example.com/insertChangeConstraint/1>
-		a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
-				"0" ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
-				<https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
-				<https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> .
+<http://www.example.com/changeLog/user-1>
+  a cdo:ChangeLog ;
+  cdo:hasMaintainer <http://www.example.com/user/1>;
+  cdo:hasDetectionStart "2022-11-00T00:00:00.000000"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+  cdo:hasDetectionEnd "2022-12-31T00:00:00.000000"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+  cdo:hasCurrentVersion <https://raw.githubusercontent.com/kg-construct/rml-test-cases/master/test-cases/RMLTC0002a-JSON/student.json> ;
+  cdo:hasPreviousVersion <https://raw.githubusercontent.com/kg-construct/rml-test-cases/master/test-cases/RMLTC0001a-JSON/student.json>;
+  cdo:hasNotificationPolicy <http://www.example.com/notificationPolicy/1>; 
+  cdo:hasChange <http://www.example.com/insertChange/0>,
+				<http://www.example.com/insertChange/1> .
+
+<http://www.example.com/insertChange/1>
+  a cdo:InsertSourceData ;
+  lode:atTime "2022-10-01T09:56:01.286820"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+  cdo:hasDataReference "ID";
+  cdo:hasChangedData "10" .
+
+<http://www.example.com/insertChange/0>
+  a cdo:InsertSourceData ;
+  lode:atTime "2022-10-01T09:55:01.286844"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+  cdo:hasStructuralReference "Column";
+  cdo:hasChangedData "ID" .
+  
+###############################
+# Notification policy details #
+###############################
+
+<http://www.example.com/user/1> a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#Agent>, <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> .
 
 <http://www.example.com/notificationPolicy/1>
-		a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#Policy> ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#desc>
-				"Notification policy for user 1" ;
-		<http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#grants>
-				<http://www.example.com/policyObligation/1> ;
-		<https://change-detection-ontology.adaptcentre.ie/#detectionEnd>
-				"2022-10-08 00:00:00.0000"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-		<https://change-detection-ontology.adaptcentre.ie/#detectionStart>
-				"2022-09-28 14:42:51.923199"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+  a rei-policy:Policy ;
+  rei-policy:desc "Notification policy for user 1" ;
+  rei-policy:grants <http://www.example.com/policyObligation/1> .
+
+<http://www.example.com/policyObligation/1>
+  a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation> ;
+  rei-deontic:action <https://change-detection-ontology.adaptcentre.ie/#sendNotification> ;
+  rei-deontic:obligedTo <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> ;
+  rei-deontic:startingConstraint <http://www.example.com/insertChangeConstraint/1> ;
+  rei-policy:actor <http://www.example.com/user/1>, <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> .
+
+<http://www.example.com/insertChangeConstraint/1>
+  a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+  rei-constraint:object "50" ;
+  rei-constraint:predicate <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+  rei-constraint:subject <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> .
+
