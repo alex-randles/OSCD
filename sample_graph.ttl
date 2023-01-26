@@ -47,14 +47,14 @@
 
 <http://www.example.com/policyObligation/1>
   a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation> ;
-  rei-deontic:action <https://change-detection-ontology.adaptcentre.ie/#sendNotification> ;
-  rei-deontic:obligedTo <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> ;
+  rei-deontic:action <https://w3id.org/OSCD#sendNotification> ;
+  rei-deontic:obligedTo <https://w3id.org/OSCD#softwareAgent> ;
   rei-deontic:startingConstraint <http://www.example.com/insertChangeConstraint/1> ;
-  rei-policy:actor <http://www.example.com/user/1>, <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> .
+  rei-policy:actor <http://www.example.com/user/1>, <https://w3id.org/OSCD#softwareAgent> .
 
 <http://www.example.com/insertChangeConstraint/1>
   a <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
   rei-constraint:object "50" ;
-  rei-constraint:predicate <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
-  rei-constraint:subject <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> .
+  rei-constraint:predicate <https://w3id.org/OSCD#hasThreshold> ;
+  rei-constraint:subject <https://w3id.org/OSCD#InsertSourceData> .
 
