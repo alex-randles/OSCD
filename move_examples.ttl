@@ -1,0 +1,24 @@
+@prefix oscd: <https://w3id.org/OSCD#> .
+@prefix ex: <https://w3id.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+
+ex:moveChange-1 a oscd:MoveSourceData;
+    oscd:hasStructuralReference "CSV File";
+    oscd:hasChangedData ex:changedData-1 .
+
+ex:changedData-1 a oscd:ChangedData;
+     rdfs:comment "students.csv file has been moved to new location.";
+     prov:atLocation <students-v2> .
+
+<students-v2> a prov:Location .
+
+ex:moveChange-2 a oscd:MoveSourceData;
+    oscd:hasStructuralReference "XML file";
+    oscd:hasChangedData ex:changedData-2 .
+
+ex:changedData-2 a oscd:ChangedData;
+     rdfs:comment "employees.csv file has been moved to new location.";
+     prov:atLocation <employees-v2> .
+
+<employees-v2> a prov:Location .
