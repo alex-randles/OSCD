@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @base <https://w3id.org/OSCD#> .
 
 <https://w3id.org/OSCD#> rdf:type owl:Ontology ;
@@ -318,15 +319,17 @@ rdfs:Resource rdf:type owl:Class .
                 rdfs:comment "Data which has changed location in the source data." ;
                 rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
                 rdfs:label "MoveSourceData" ;
-                skos:example """" ex:moveChange-2 a oscd:MoveSourceData;
-    oscd:hasStructuralReference "XML file";
+                skos:example """
+ex:moveChange-2 a oscd:MoveSourceData;
+    oscd:hasStructuralReference 'XML file';
     oscd:hasChangedData ex:changedData-2 .
 
 ex:changedData-2 a oscd:ChangedData;
-     rdfs:comment "employees.csv file has been moved to new location.";
+     rdfs:comment 'employees.csv file has been moved to new location.';
      prov:atLocation <employees-v2> .
 
-<employees-v2> a prov:Location """ .
+<employees-v2> a prov:Location 
+""" .
 
 
 ###  https://w3id.org/OSCD#UpdateSourceData
