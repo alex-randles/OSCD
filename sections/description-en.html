@@ -33,3 +33,48 @@ WHERE {
 </code>
 </pre>
 
+
+
+
+<div style="width:100%">
+<strong>Sample SHACL Shapes</strong>
+<table class="text-center w-100">
+  <tr>
+    <td>
+    <pre>
+		<code>
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix ex: &lt;http://example.org/&gt; .
+@prefix oscd: &lt;https://w3id.org/OSCD#&gt; .
+
+ex:validateSources
+    a sh:NodeShape ;
+    sh:targetClass oscd:ChangeLog ;
+    sh:property [
+		sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
+		sh:minCount 1;
+		sh:message "Missing a source data version." ;
+    ] .
+    </code>
+    </pre>
+</td>
+    <td>
+      <pre><code>
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix ex: &lt;http://example.org/&gt; .
+@prefix oscd: &lt;https://w3id.org/OSCD#&gt; .
+
+ex:validateSources
+    a sh:NodeShape ;
+    sh:targetClass oscd:ChangeLog ;
+    sh:property [
+		sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
+		sh:minCount 1;
+		sh:message "Missing a source data version." ;
+    ] .
+</code>
+     </pre>
+    </td>
+  </tr>
+</table> 
+</div>
