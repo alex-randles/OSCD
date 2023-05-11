@@ -48,13 +48,13 @@ WHERE {
 @prefix oscd: &lt;https://www.w3id.org/OSCD#&gt; .
 
 ex:validateSources
-    a sh:NodeShape ;
-    sh:targetClass oscd:ChangeLog ;
-    sh:property [
-		sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
-		sh:minCount 1;
-		sh:message "Missing a source data version." ;
-    ] .
+ a sh:NodeShape ;
+ sh:targetClass oscd:ChangeLog ;
+ sh:property [
+	sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
+	sh:minCount 1;
+	sh:message "Missing a source data version." ;
+ ] .
     </code>
     </pre>
 </td>
