@@ -214,6 +214,36 @@ This section provides details for each class and property defined by Ontology fo
             <a href="https://w3id.org/OSCD#">https://w3id.org/OSCD#</a>
          </dd>
       </dl>
+      
+      <dl>
+      
+        <dt>Example</dt>
+         <dd>
+            <pre>
+# move change example 1
+ex:moveChange-1 a oscd:MoveSourceData;
+    oscd:hasStructuralReference 'CSV File';
+    oscd:hasChangedData ex:changedData-1 .
+
+ex:changedData-1 a oscd:ChangedData;
+     rdfs:comment 'students-v1.csv file has been moved to a new location.';
+     oscd:hasNewLocation &lt;students-v2&gt; .
+
+&lt;students-v2&gt; a rdfs:Resource .
+
+# move change example 2
+ex:moveChange-2 a oscd:MoveSourceData;
+    oscd:hasStructuralReference 'XML file';
+    oscd:hasChangedData ex:changedData-2 .
+
+ex:changedData-2 a oscd:ChangedData;
+     rdfs:comment 'employees-v1.csv file has been moved to a new location.';
+     oscd:hasNewLocation &lt;employees-v2&gt; .
+
+&lt;employees-v2&gt; a rdfs:Resource .
+</pre>
+         </dd>
+      </dl>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
