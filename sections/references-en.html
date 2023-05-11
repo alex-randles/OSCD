@@ -15,3 +15,511 @@ Dynamic Datasets</cite></a> Journal of Web Semantics, 9(3), 266-283, (2011).
 		</li>
 	</ul>
 </div>
+
+
+
+<h2 id="ref" class="list">Appendix <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+A sample instance graph detailing a quality report expressed in the MQIO is presented below. 
+<table style="width:80%;">
+  <tr>
+    <td>
+    <pre><code>
+		
+		@prefix ex: &lt;http://example.org/&gt; .
+@prefix mqio: &lt;https://w3id.org/MQIO#gt; .
+@prefix mqio-metric: &lt;https://w3id.org/MQIO-metrics#&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
+@prefix xml: &lt;http://www.w3.org/XML/1998/namespace&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix dqv: &lt;http://www.w3.org/ns/dqv#&gt;.
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt;.
+
+&lt;sample-mapping.ttl&gt; a mqio:MappingArtefact ;
+    mqio:wasCreatedBy ex:user-1;
+    mqio:hasPurpose "Mapping to generate a Provenance Graph." ; 
+    prov:generatedAtTime  "2022-01-18T17:31:01.286820"^^xsd:dateTime . 
+
+ex:mappingQualityAssessment a mqio:MappingAssessment ;
+    mqio:assessedMapping &lt;sample-mapping.ttl&gt; ;
+    mqio:wasExecuted mqio-metric:D2, mqio-metric:D3, mqio-metric:D4 ;
+    mqio:usedTool ex:mappingEditor ;
+    prov:wasAssociatedWith ex:user-1; 
+    prov:endedAtTime  "2022-10-18T17:31:01.286820"^^xsd:dateTime;
+    mqio:hasQualityRequirement ex:qualityRequirement; 
+    mqio:hasValidationReport ex:mappingValidationReport .
+    
+    
+&lt;http://www.example.com/contactDetailsGraph/user-1&gt; {
+    &lt;http://www.example.com/user-1&gt;
+            a       &lt;http://xmlns.com/foaf/0.1/Agent&gt; ;
+            &lt;http://xmlns.com/foaf/0.1/mbox&gt;
+                    "alexrandles0@gmail.com" .
+}
+
+&lt;http://www.example.com/notificationGraph/user-1&gt; {
+    &lt;http://www.example.com/userActor/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#Agent&gt; .
+    
+    &lt;http://www.example.com/policyObligation/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#action&gt;
+                    &lt;https://www.w3id.org/OSCD#sendNotification&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#obligedTo&gt;
+                    &lt;https://www.w3id.org/OSCD#softwareAgent&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#startingConstraint&gt;
+                    &lt;http://www.example.com/notificationConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#actor&gt;
+                    &lt;http://www.example.com/userActor/1&gt; , &lt;https://www.w3id.org/OSCD#softwareAgent&gt; .
+    
+    &lt;http://www.example.com/insertChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    10 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; .
+    
+    &lt;http://www.example.com/notificationPolicy/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#Policy&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#desc&gt;
+                    "Notification policy for user 1" ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#grants&gt;
+                    &lt;http://www.example.com/policyObligation/1&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDetectionEnd&gt;
+                    "2023-04-01 00:00:00.0000"^^&lt;http://www.w3.org/2001/XMLSchema#dateTime&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDetectionStart&gt;
+                    "2023-05-06 15:39:15.130155"^^&lt;http://www.w3.org/2001/XMLSchema#dateTime&gt; .
+    
+    &lt;http://www.example.com/updateChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    0 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#UpdateSourceData&gt; .
+    
+    &lt;http://www.example.com/moveChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    0 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#MoveSourceData&gt; .
+    
+    &lt;http://www.example.com/deleteChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    5 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#DeleteSourceData&gt; .
+    
+    &lt;http://www.example.com/notificationConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#And&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#fifth&gt;
+                    &lt;http://www.example.com/mergeChangeConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#first&gt;
+                    &lt;http://www.example.com/insertChangeConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#fourth&gt;
+                    &lt;http://www.example.com/updateChangeConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#second&gt;
+                    &lt;http://www.example.com/deleteChangeConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#sixth&gt;
+                    &lt;http://www.example.com/datatypeChangeConstraint/1&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#third&gt;
+                    &lt;http://www.example.com/moveChangeConstraint/1&gt; .
+    
+    &lt;http://www.example.com/mergeChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    0 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#MergeSourceData&gt; .
+    
+    &lt;http://www.example.com/datatypeChangeConstraint/1&gt;
+            a       &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object&gt;
+                    0 ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate&gt;
+                    &lt;https://www.w3id.org/OSCD#hasThreshold&gt; ;
+            &lt;http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject&gt;
+                    &lt;https://www.w3id.org/OSCD#DatatypeSourceData&gt; .
+}
+
+&lt;http://www.example.com/changesGraph/user-1&gt; {
+    &lt;http://www.example.com/changedData/2&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Tennis" .
+    
+    &lt;http://www.example.com/changedData/15&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Tom" .
+    
+    &lt;http://www.example.com/insertChange/14&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/14&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "ID" .
+    
+    &lt;http://www.example.com/changedData/22&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "FirstName" .
+    
+    &lt;http://www.example.com/deleteChange/19&gt;
+            a       &lt;https://www.w3id.org/OSCD#DeleteSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/19&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "Name" .
+    
+    &lt;http://www.example.com/insertChange/6&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/6&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "LastName" .
+    
+    &lt;http://www.example.com/changedData/7&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Soccer" .
+    
+    &lt;http://www.example.com/insertChange/21&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/21&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasStructuralReference&gt;
+                    "Columns" .
+    
+    &lt;http://www.example.com/insertChange/0&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/0&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "FirstName" .
+    
+    &lt;http://www.example.com/changedData/1&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Williams" .
+    
+    &lt;http://www.example.com/changedData/14&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "13" .
+    
+    &lt;http://www.example.com/insertChange/13&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/13&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "City" .
+    
+    &lt;http://www.example.com/changedData/21&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "LastName" .
+    
+    &lt;http://www.example.com/insertChange/5&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/5&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "FirstName" .
+    
+    &lt;http://www.example.com/changedData/6&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Ronaldo" .
+    
+    &lt;http://www.example.com/insertChange/20&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/20&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasStructuralReference&gt;
+                    "Columns" .
+    
+    &lt;http://www.example.com/changedData/19&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Venus" .
+    
+    &lt;http://www.example.com/changedData/0&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Venus" .
+    
+    &lt;http://www.example.com/insertChange/18&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/18&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "City" .
+    
+    &lt;http://www.example.com/changedData/13&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Brooklyn" .
+    
+    &lt;http://www.example.com/insertChange/12&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/12&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "Sport" .
+    
+    &lt;http://www.example.com/changedData/20&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "City" .
+    
+    &lt;http://www.example.com/insertChange/4&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/4&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "ID" .
+    
+    &lt;http://www.example.com/changedData/5&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Cristiano" .
+    
+    &lt;http://www.example.com/changedData/18&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "San Mateo" .
+    
+    &lt;http://www.example.com/deleteChange/24&gt;
+            a       &lt;https://www.w3id.org/OSCD#DeleteSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/24&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasStructuralReference&gt;
+                    "Columns" .
+    
+    &lt;http://www.example.com/changeLog/user-1&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangeLog&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChange&gt;
+                    &lt;http://www.example.com/insertChange/3&gt; , &lt;http://www.example.com/insertChange/16&gt; , &lt;http://www.example.com/insertChange/11&gt; , &lt;http://www.example.com/insertChange/7&gt; , &lt;http://www.example.com/insertChange/13&gt; , &lt;http://www.example.com/insertChange/9&gt; , &lt;http://www.example.com/deleteChange/24&gt; , &lt;http://www.example.com/insertChange/20&gt; , &lt;http://www.example.com/insertChange/17&gt; , &lt;http://www.example.com/insertChange/14&gt; , &lt;http://www.example.com/insertChange/12&gt; , &lt;http://www.example.com/insertChange/2&gt; , &lt;http://www.example.com/insertChange/1&gt; , &lt;http://www.example.com/insertChange/18&gt; , &lt;http://www.example.com/insertChange/6&gt; , &lt;http://www.example.com/insertChange/5&gt; , &lt;http://www.example.com/insertChange/8&gt; , &lt;http://www.example.com/insertChange/23&gt; , &lt;http://www.example.com/insertChange/10&gt; , &lt;http://www.example.com/insertChange/0&gt; , &lt;http://www.example.com/deleteChange/19&gt; , &lt;http://www.example.com/insertChange/4&gt; , &lt;http://www.example.com/insertChange/15&gt; , &lt;http://www.example.com/insertChange/22&gt; , &lt;http://www.example.com/insertChange/21&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasCurrentSource&gt;
+                    &lt;https://raw.githubusercontent.com/alex-randles/Change-Detection-System-Examples/main/manipulated_file/student.csv&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasPreviousSource&gt;
+                    &lt;https://raw.githubusercontent.com/kg-construct/rml-test-cases/master/test-cases/RMLTC0002a-CSV/student.csv&gt; .
+    
+    &lt;http://www.example.com/insertChange/17&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/17&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "Sport" .
+    
+    &lt;http://www.example.com/changedData/12&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Basketball" .
+    
+    &lt;http://www.example.com/insertChange/9&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/9&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "ID" .
+    
+    &lt;http://www.example.com/insertChange/11&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/11&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "LastName" .
+    
+    &lt;http://www.example.com/insertChange/3&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/3&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "City" .
+    
+    &lt;http://www.example.com/changedData/4&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "11" .
+    
+    &lt;http://www.example.com/changedData/17&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Football" .
+    
+    &lt;http://www.example.com/insertChange/16&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/16&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "LastName" .
+    
+    &lt;http://www.example.com/changedData/11&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Jordan" .
+    
+    &lt;http://www.example.com/changedData/24&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Name" .
+    
+    &lt;http://www.example.com/insertChange/8&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/8&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "City" .
+    
+    &lt;http://www.example.com/insertChange/10&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/10&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "FirstName" .
+    
+    &lt;http://www.example.com/changedData/9&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "12" .
+    
+    &lt;http://www.example.com/insertChange/23&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/23&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasStructuralReference&gt;
+                    "Columns" .
+    
+    &lt;http://www.example.com/insertChange/2&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/2&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "Sport" .
+    
+    &lt;http://www.example.com/changedData/3&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "California" .
+    
+    &lt;http://www.example.com/changedData/16&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Brady" .
+    
+    &lt;http://www.example.com/insertChange/15&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/15&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "FirstName" .
+    
+    &lt;http://www.example.com/changedData/10&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Michael" .
+    
+    &lt;http://www.example.com/changedData/23&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Sport" .
+    
+    &lt;http://www.example.com/insertChange/7&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/7&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "Sport" .
+    
+    &lt;http://www.example.com/changedData/8&gt;
+            a       &lt;https://www.w3id.org/OSCD#ChangedData&gt; ;
+            &lt;http://www.w3.org/2000/01/rdf-schema#comment&gt;
+                    "Funchal" .
+    
+    &lt;http://www.example.com/insertChange/22&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/22&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasStructuralReference&gt;
+                    "Columns" .
+    
+    &lt;http://www.example.com/insertChange/1&gt;
+            a       &lt;https://www.w3id.org/OSCD#InsertSourceData&gt; ;
+            &lt;http://linkedevents.org/ontology/atTime&gt;
+                    "2023-05-06 15:39:15.025273"^^&lt;http://www.w3.org/2001/XMLSchema#dateTimeStamp&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasChangedData&gt;
+                    &lt;http://www.example.com/changedData/1&gt; ;
+            &lt;https://www.w3id.org/OSCD#hasDataReference&gt;
+                    "LastName" .
+}
+
+    
+    
+    
+    </code></pre>
+</td>
+   
+  </tr>
+</table> 
