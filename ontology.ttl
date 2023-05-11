@@ -320,15 +320,27 @@ rdfs:Resource rdf:type owl:Class .
                 rdfs:isDefinedBy <https://w3id.org/OSCD#> ;
                 rdfs:label "MoveSourceData" ;
                 skos:example """
+# move change example 1
+ex:moveChange-1 a oscd:MoveSourceData;
+    oscd:hasStructuralReference 'CSV File';
+    oscd:hasChangedData ex:changedData-1 .
+
+ex:changedData-1 a oscd:ChangedData;
+     rdfs:comment 'students-v1.csv file has been moved to a new location.';
+     oscd:hasNewLocation <students-v2> .
+
+<students-v2> a rdfs:Resource .
+
+# move change example 2
 ex:moveChange-2 a oscd:MoveSourceData;
     oscd:hasStructuralReference 'XML file';
     oscd:hasChangedData ex:changedData-2 .
 
 ex:changedData-2 a oscd:ChangedData;
-     rdfs:comment 'employees.csv file has been moved to new location.';
-     prov:atLocation <employees-v2> .
+     rdfs:comment 'employees-v1.csv file has been moved to a new location.';
+     oscd:hasNewLocation <employees-v2> .
 
-<employees-v2> a prov:Location 
+<employees-v2> a rdfs:Resource .
 """ .
 
 

@@ -1,0 +1,12 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.org/> .
+@prefix oscd: <https://w3id.org/OSCD#> .
+
+ex:validateSources
+    a sh:NodeShape ;
+    sh:targetClass oscd:ChangeLog ;
+    sh:property [
+		sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
+		sh:minCount 1;
+		sh:message "Missing a source data version." ;
+    ] .
