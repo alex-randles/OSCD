@@ -10,27 +10,26 @@
 
 The SPARQL query shown below can be used to relate source data changes to respective mappings:
 <br>
-<pre><code>PREFIX oscd: &lt;https://w3id.org/OSCD#&gt;
-PREFIX rml: &lt;http://semweb.mmlab.be/ns/rml#&gt;
-PREFIX rr: &lt;http://www.w3.org/ns/r2rml#&gt;
-
-SELECT ?tripleMap ?source ?change ?reference ?changedData
+<pre><code>
+SELECT ?tripleMap ?source ?change ?reference ?changeDescription
 WHERE {
-  GRAPH ?changesGraph {    			 
-	?changeLog a oscd:ChangeLog;
-           	oscd:hasChange ?change;
-   			oscd:hasCurrentVersion ?currentVersion .
-	?change oscd:hasDataReference ?reference;
-        	oscd:hasChangedData ?changedData .
-	BIND (REPLACE(STR(?currentVersion), "^.*/([^/]*)$", "$1") as ?source)
+  GRAPH ?changesGraph {    
+    ?changeLog a oscd:ChangeLog;
+            oscd:hasChange ?change;
+    oscd:hasCurrentSource ?currentSource .
+    ?change oscd:hasDataReference ?reference;
+            oscd:hasChangedData ?changedData .
+    ?changedData rdfs:comment ?changeDescription .
+    BIND (REPLACE(STR(?currentSource), "^.*/([^/]*)$", "$1") as ?source)
   }
-  GRAPH ?mappingGraph {    			 
-	?tripleMap rml:logicalSource|rr:logicalTable ?logicalSource;
-           	rr:predicateObjectMap ?pom .
-	?logicalSource rml:source|rr:tableName ?source .
-	?pom rr:objectMap ?objectMap .
-	?objectMap rml:reference|rr:column ?reference.
+  GRAPH ?mappingGraph {    
+    ?tripleMap rml:logicalSource|rr:logicalTable ?logicalSource;
+            rr:predicateObjectMap ?pom .
+    ?logicalSource rml:source|rr:tableName ?source .
+    ?pom rr:objectMap ?objectMap .
+    ?objectMap rml:reference|rr:column ?reference.
   }
-}</code>
+}
+</code>
 </pre>
 
