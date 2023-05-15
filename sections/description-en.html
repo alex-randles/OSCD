@@ -64,13 +64,13 @@ ex:validateSources
 @prefix ex: &lt;http://example.org/&gt; .
 @prefix oscd: &lt;https://www.w3id.org/OSCD#&gt; .
 
-ex:validateSources
+ex:validateMaintainer
     a sh:NodeShape ;
     sh:targetClass oscd:ChangeLog ;
     sh:property [
-		sh:path oscd:hasPreviousSource, oscd:hasCurrentSource ;
+		sh:path oscd:hasMaintainer;
 		sh:minCount 1;
-		sh:message "Missing a source data version." ;
+		sh:message "Missing maintainer of the source data." ;
     ] .
 </code>
      </pre>
