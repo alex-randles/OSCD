@@ -11,9 +11,16 @@ The design has been inspired by the state of the art in Linked data change detec
   <br>
 </figure> 
 
+<style>
+span.courier {
+  font-family: 'Courier New', monospace;
+}
+</style>
+
+
 The detection of changes within the source data is initiated by an agent who is responsible for maintaining the data (<span style="font-family: 'Courier New', monospace;">oscd:hasMaintainer</span>). 
 Changes will be detected between a previous version (<span style="font-family: 'Courier New', monospace;">oscd:hasPreviousSource</span>) and
-the current version (<span style="font-family: 'Courier New', monospace;">oscd:hasCurrentversion</span>). 
+the current version (<span class="courier">oscd:hasCurrentversion</span>). 
 Once the change detection process has been initiated, changes are detected between when the process began 
 (<span style="font-family: 'Courier New', monospace;">oscd:hasDetectionStart</span>) 
 and a predetermined end date (<span style="font-family: 'Courier New', monospace;">oscd:hasDetectionEnd</span>) 
