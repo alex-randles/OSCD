@@ -18,25 +18,25 @@ span.courier-font {
 </style>
 
 
-The detection of changes within the source data is initiated by an agent who is responsible for maintaining the data (<span style="font-family: 'Courier New', monospace;">oscd:hasMaintainer</span>). 
-Changes will be detected between a previous version (<span style="font-family: 'Courier New', monospace;">oscd:hasPreviousSource</span>) and
+The detection of changes within the source data is initiated by an agent who is responsible for maintaining the data (<span class="courier-font">oscd:hasMaintainer</span>). 
+Changes will be detected between a previous version (<span class="courier-font">oscd:hasPreviousSource</span>) and
 the current version (<span class="courier-font">oscd:hasCurrentversion</span>). 
 Once the change detection process has been initiated, changes are detected between when the process began 
-(<span style="font-family: 'Courier New', monospace;">oscd:hasDetectionStart</span>) 
-and a predetermined end date (<span style="font-family: 'Courier New', monospace;">oscd:hasDetectionEnd</span>) 
-which is defined by the maintainer. A notification policy (<span style="font-family: 'Courier New', monospace;">oscd:hasNotificationPolicy</span>) can be 
+(<span class="courier-font">oscd:hasDetectionStart</span>) 
+and a predetermined end date (<span class="courier-font">oscd:hasDetectionEnd</span>) 
+which is defined by the maintainer. A notification policy (<span class="courier-font">oscd:hasNotificationPolicy</span>) can be 
 defined which is represented with the <a target="_blank" href="https://redirect.cs.umbc.edu/~lkagal1/rei/">Rei policy ontology</a>. 
 The notification policy allows agents to be notified of changes when a certain amount has occurred. 
 Therefore, ensuring the maintainers are informed of changes when required. 
 <br>
 <br>
-Changes which occur in a specific source data are grouped into a log (<span style="font-family: 'Courier New', monospace;">oscd:ChangeLog</span>).
-Each change (<span style="font-family: 'Courier New', monospace;">oscd:hasChange</span>)
-within a change log is represented as a specialized event (<span style="font-family: 'Courier New', monospace;">lode:Event</span>) which has resulted in a change in the source data used to generate linked data. 
+Changes which occur in a specific source data are grouped into a log (<span class="courier-font">oscd:ChangeLog</span>).
+Each change (<span class="courier-font">oscd:hasChange</span>)
+within a change log is represented as a specialized event (<span class="courier-font">lode:Event</span>) which has resulted in a change in the source data used to generate linked data. 
 Different change types exist within the ontology which allow the cause of the change to be captured.
-For instance, a value is inserted (<span style="font-family: 'Courier New', monospace;">oscd:InsertSourceData</span>) in the source data. 
-Additional information related to the change such as the data inserted (<span style="font-family: 'Courier New', monospace;">oscd:hasChangedData</span>) or 
-its location within the source data (<span style="font-family: 'Courier New', monospace;">oscd:hasDataReference</span>). 
+For instance, a value is inserted (<span class="courier-font">oscd:InsertSourceData</span>) in the source data. 
+Additional information related to the change such as the data inserted (<span class="courier-font">oscd:hasChangedData</span>) or 
+its location within the source data (<span class="courier-font">oscd:hasDataReference</span>). 
 The model can be extended to capture domain specific changes.
 
 <div id="namespacedeclarations">
